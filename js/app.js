@@ -75,7 +75,25 @@ var common = {
 		$('.phone-mask').mask("+380(99) 999-99-99");
 
 
-
+		$("form").submit(function(event){
+			event.preventDefault();
+			formField = $(this).find(".field")
+			
+			formField.each(function(){
+				var thisEl = $(this);
+				if (! thisEl.val().length) {
+					thisEl.addClass('error')
+					setTimeout(function(){
+						thisEl.removeClass('error')
+					}, 3000)
+					thisEl.addClass('form-error')
+				}else { thisEl.removeClass('form-error')}
+			});	
+			if(formField.hasClass('form-error') == false){
+				$('.popup-wrapper').removeClass('active');
+				$('#thanksPopup').addClass('active')
+			}
+		});
 
 	},
 	owl: function(){
