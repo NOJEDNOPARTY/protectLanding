@@ -7,8 +7,8 @@ var common = {
 	main: function(){
 
 		function fixedHead() {
-			$('header').addClass('fixed');
-			$('body').css({'margin-top':$('header').outerHeight()})
+			$('.header-wrap').addClass('fixed');
+			$('body').css({'margin-top':$('.header-wrap').outerHeight()})
 		};
 
 		fixedHead();
@@ -29,15 +29,12 @@ var common = {
 			}
 		})
 
-		// $('.menu-trigger').click(function(event){
-		// 	event.preventDefault();
-		// 	$('nav').addClass('open');
-		// })
-		// $('.nav-close').click(function(event){
-		// 	event.preventDefault();
-		// 	$('nav').removeClass('open');
-		// })
-		
+		$('.menu-trigger').click(function(event){
+			event.preventDefault();
+			$('.header-wrap').toggleClass('open');
+			$('header').slideToggle('fast');
+		})
+
 		var bLazy = new Blazy({});
 
 		
@@ -47,23 +44,18 @@ var common = {
 			top = $(id).offset().top;
 			$('body,html').animate({scrollTop: top - 150}, 3000);
 			$('.menu-trigger').removeClass('open');
-			$('header').removeClass('open');
+			$('header').slideToggle('fast');
+			$('.header-wrap').removeClass('open');
 		});
 
 		$('.call-popup').click(function(event){
 			event.preventDefault();
 			var popup  = '#' + $(this).attr('data-popup');
-			if($(this).attr('data-popup') != 'polyticsPopup'){
-				$('.popup-wrapper').removeClass('active');
-				$('header').removeClass('open');
-				$('body').addClass('hidden');
-				$(popup).addClass('active')
-			}else {
-				$(popup).removeClass('active')
-				$('header').removeClass('open');
-				$('body').removeClass('hidden');
-			}
-
+			$('.popup-wrapper').removeClass('active');
+			$('header').slideToggle('fast');
+			$('.header-wrap').removeClass('open');
+			$('body').addClass('hidden');
+			$(popup).addClass('active')
 		});
 
 		
@@ -104,12 +96,21 @@ var common = {
 			nav: true,
 			dots: false,
 			autoHeight: true,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
 			responsive:{
 				0:{
 					items:1,
 					center: false
 				},
 				551:{
+					items:3
+				},
+				1301:{
+					items:4
+				},
+				1301:{
 					items:5
 				},
 			}
@@ -123,6 +124,9 @@ var common = {
 			nav: true,
 			dots: false,
 			autoHeight: true,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
 			responsive:{
 				0:{
 					items:1,
@@ -141,6 +145,9 @@ var common = {
 			nav: true,
 			dots: false,
 			autoHeight: true,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
 			responsive:{
 				0:{
 					items:1,
@@ -158,6 +165,9 @@ var common = {
 			margin:0,
 			nav: true,
 			dots: false,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
 			autoHeight: true
 		})
 
@@ -167,6 +177,9 @@ var common = {
 			margin:0,
 			nav: true,
 			dots: false,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
 			autoHeight: true
 		})
 	},
