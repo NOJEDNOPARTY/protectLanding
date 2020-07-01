@@ -44,7 +44,7 @@ var common = {
 			top = $(id).offset().top;
 			$('body,html').animate({scrollTop: top - 150}, 3000);
 			$('.menu-trigger').removeClass('open');
-			$('header').slideToggle('fast');
+			$('header').slideUp('fast');
 			$('.header-wrap').removeClass('open');
 		});
 
@@ -52,7 +52,7 @@ var common = {
 			event.preventDefault();
 			var popup  = '#' + $(this).attr('data-popup');
 			$('.popup-wrapper').removeClass('active');
-			$('header').slideToggle('fast');
+			$('header').slideUp('fast');
 			$('.header-wrap').removeClass('open');
 			$('body').addClass('hidden');
 			$(popup).addClass('active')
@@ -102,9 +102,11 @@ var common = {
 			responsive:{
 				0:{
 					items:1,
-					center: false
 				},
-				551:{
+				501:{
+					items:2
+				},
+				993:{
 					items:3
 				},
 				1301:{
@@ -129,10 +131,18 @@ var common = {
 			autoplayHoverPause:true,
 			responsive:{
 				0:{
-					items:1,
-					center: false
+					margin:0,
+					items:1
 				},
-				551:{
+				501:{
+					margin:15,
+					items:2
+				},
+				768:{
+					margin:15,
+					items:3
+				},
+				993:{
 					items:4
 				},
 			}
@@ -150,10 +160,13 @@ var common = {
 			autoplayHoverPause:true,
 			responsive:{
 				0:{
-					items:1,
-					center: false
+					margin:0,
+					items:1
 				},
-				551:{
+				501:{
+					items:2
+				},
+				993:{
 					items:3
 				},
 			}
