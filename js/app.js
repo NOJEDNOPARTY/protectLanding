@@ -44,8 +44,10 @@ var common = {
 			top = $(id).offset().top;
 			$('body,html').animate({scrollTop: top - 150}, 3000);
 			$('.menu-trigger').removeClass('open');
-			$('header').slideUp('fast');
-			$('.header-wrap').removeClass('open');
+			if($('.header-wrap').hasClass('open') == true) {
+				$('header').slideUp('fast');
+				$('.header-wrap').removeClass('open');
+			}
 		});
 
 		$('.call-popup').click(function(event){
@@ -172,6 +174,25 @@ var common = {
 			}
 		})
 		
+		$('.packages-slider').owlCarousel({
+			loop:true,
+			items: 2,
+			margin: 20,
+			nav: true,
+			dots: false,
+			responsive:{
+				0:{
+					margin:0,
+					items:1
+				},
+				768:{
+					items:2
+				},
+				1025:{
+					items:3
+				},
+			}
+		})
 		$('.blog-slider').owlCarousel({
 			loop:true,
 			items: 1,
@@ -185,6 +206,18 @@ var common = {
 		})
 
 		$('.reviews-slider').owlCarousel({
+			loop:true,
+			items: 1,
+			margin:0,
+			nav: true,
+			dots: false,
+			autoplay:true,
+			autoplayTimeout:5000,
+			autoplayHoverPause:true,
+			autoHeight: true
+		})
+
+		$('.batter-slider').owlCarousel({
 			loop:true,
 			items: 1,
 			margin:0,
